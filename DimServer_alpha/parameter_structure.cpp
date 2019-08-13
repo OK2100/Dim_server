@@ -25,21 +25,21 @@ bool Parameter::isReadOnly(){
 PMChannel::PMChannel(QString name)
 {
     Name = name;
-    addParameter(Name+"/PMCH_ADC_ZERO",0,0);
-    addParameter(Name+"/PMCH_ADC_DELAY",0,0);
-    addParameter(Name+"/PMCH_ADC0_OFFSET",0,0);
-    addParameter(Name+"/PMCH_ADC1_OFFSET",0,0);
-    addParameter(Name+"/PMCH_ADC0_RANGE",0,0);
-    addParameter(Name+"/PMCH_ADC1_RANGE",0,0);
-    addParameter(Name+"/PMCH_TIME_ALIN",0,0);
+    addParameter(Name+"/ADC_ZERO",0,0);
+    addParameter(Name+"/ADC_DELAY",0,0);
+    addParameter(Name+"/ADC0_OFFSET",0,0);
+    addParameter(Name+"/ADC1_OFFSET",0,0);
+    addParameter(Name+"/ADC0_RANGE",0,0);
+    addParameter(Name+"/ADC1_RANGE",0,0);
+    addParameter(Name+"/TIME_ALIN",0,0);
 
-    addParameter(Name+"/PMCH_ADC0_MEANAMPL",0,1);
-    addParameter(Name+"/PMCH_ADC1_MEANAMPL",0,1);
-    addParameter(Name+"/PMCH_ADC0_ZEROLVL",0,1);
-    addParameter(Name+"/PMCH_ADC1_ZEROLVL",0,1);
-    addParameter(Name+"/PMCH_CFD_CNT",0,1);
-    addParameter(Name+"/PMCH_STROBE_CNT",0,1);
-    addParameter(Name+"/PMCH_MEAN_CNT",0,1);
+    addParameter(Name+"/ADC0_MEANAMPL",0,1);
+    addParameter(Name+"/ADC1_MEANAMPL",0,1);
+    addParameter(Name+"/ADC0_ZEROLVL",0,1);
+    addParameter(Name+"/ADC1_ZEROLVL",0,1);
+    addParameter(Name+"/CFD_CNT",0,1);
+    addParameter(Name+"/STROBE_CNT",0,1);
+    addParameter(Name+"/MEAN_CNT",0,1);
 }
 
 PMChannel::~PMChannel(){

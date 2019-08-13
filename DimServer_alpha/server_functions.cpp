@@ -4,13 +4,13 @@
 
 
 
-SetParCommand::SetParCommand(Parameter* par,const char* format):DimCommand(qPrintable("SET "+par->Name),format){
+SetParCommand::SetParCommand(Parameter* par,const char* format):QObject(),DimCommand(qPrintable("SET "+par->Name),format){
     pPrmr = par;
 };
 
 void SetParCommand::commandHandler(){
     pPrmr->newData = getInt();
-//    qDebug() << pPrmr->Name << " " << pPrmr->newData;
+//    qDebug() << pPrmr->Name << " " << pPrmr->newData << " " << getSize();
 }
 
 
