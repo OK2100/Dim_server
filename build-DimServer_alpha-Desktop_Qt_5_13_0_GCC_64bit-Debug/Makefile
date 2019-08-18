@@ -40,7 +40,7 @@ DISTNAME      = DimServer_alpha1.0.0
 DISTDIR = /home/hpco/Documents/WORK/qt_prj/DimServer_alpha/build-DimServer_alpha-Desktop_Qt_5_13_0_GCC_64bit-Debug/.tmp/DimServer_alpha1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/hpco/Qt/5.13.0/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/hpco/Documents/WORK/qt_prj/DimServer_alpha/DimServer_alpha/../Sources/ -ldim /home/hpco/Qt/5.13.0/gcc_64/lib/libQt5Widgets.so /home/hpco/Qt/5.13.0/gcc_64/lib/libQt5Gui.so /home/hpco/Qt/5.13.0/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/hpco/Documents/WORK/qt_prj/DimServer_alpha/DimServer_alpha/../Sources -ldim /home/hpco/Qt/5.13.0/gcc_64/lib/libQt5Widgets.so /home/hpco/Qt/5.13.0/gcc_64/lib/libQt5Gui.so /home/hpco/Qt/5.13.0/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -972,6 +972,7 @@ main.o: ../DimServer_alpha/main.cpp ../DimServer_alpha/mainwindow.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QString \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QVector \
 		../DimServer_alpha/server_functions.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QObject \
 		../Sources/dim_include/dis.hxx \
 		../Sources/dim_include/dim_core.hxx \
 		../Sources/dim_include/dis.h \
@@ -979,7 +980,10 @@ main.o: ../DimServer_alpha/main.cpp ../DimServer_alpha/mainwindow.h \
 		../Sources/dim_include/dic.h \
 		../Sources/dim_include/dim.hxx \
 		../Sources/dim_include/sllist.hxx \
-		../Sources/dim_include/dllist.hxx
+		../Sources/dim_include/dllist.hxx \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QProcess \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qprocess.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QProcessEnvironment
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../DimServer_alpha/main.cpp
 
 mainwindow.o: ../DimServer_alpha/mainwindow.cpp ../DimServer_alpha/mainwindow.h \
@@ -1153,18 +1157,10 @@ parameter_structure.o: ../DimServer_alpha/parameter_structure.cpp ../DimServer_a
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parameter_structure.o ../DimServer_alpha/parameter_structure.cpp
 
 server_functions.o: ../DimServer_alpha/server_functions.cpp ../DimServer_alpha/server_functions.h \
-		../Sources/dim_include/dis.hxx \
-		../Sources/dim_include/dim_core.hxx \
-		../Sources/dim_include/dis.h \
-		../Sources/dim_include/dim_common.h \
-		../Sources/dim_include/dic.h \
-		../Sources/dim_include/dim.hxx \
-		../Sources/dim_include/sllist.hxx \
-		../Sources/dim_include/dllist.hxx \
-		../DimServer_alpha/parameter_structure.h \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QString \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QObject \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qobject.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qglobal.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qconfig.h \
@@ -1186,21 +1182,57 @@ server_functions.o: ../DimServer_alpha/server_functions.cpp ../DimServer_alpha/s
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qmutex.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qnumeric.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qbytearray.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qrefcount.h \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qarraydata.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstringliteral.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstringalgorithms.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstringview.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QVector \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qlist.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qalgorithms.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qiterator.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qpair.h \
-		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qpoint.h
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qpoint.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qregexp.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qobject_impl.h \
+		../Sources/dim_include/dis.hxx \
+		../Sources/dim_include/dim_core.hxx \
+		../Sources/dim_include/dis.h \
+		../Sources/dim_include/dim_common.h \
+		../Sources/dim_include/dic.h \
+		../Sources/dim_include/dim.hxx \
+		../Sources/dim_include/sllist.hxx \
+		../Sources/dim_include/dllist.hxx \
+		../DimServer_alpha/parameter_structure.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QString \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QVector \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/QDebug \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qdebug.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qhash.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qmap.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qlocale.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qvariant.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qset.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/hpco/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o server_functions.o ../DimServer_alpha/server_functions.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
